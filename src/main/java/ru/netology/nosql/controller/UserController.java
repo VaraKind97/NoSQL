@@ -24,6 +24,11 @@ public class UserController {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+    
+        @GetMapping("/public/check")
+    public ResponseEntity<String> check() {
+        return ResponseEntity.ok("Service is running");
+    }
 
     @PostMapping
     public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
@@ -60,4 +65,5 @@ public class UserController {
     public List<User> searchUsersByAge(@RequestParam Integer age) {
         return userRepository.findByAge(age);
     }
+
 }
